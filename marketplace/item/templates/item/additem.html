@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %} {% block content %}
+
+<h1>Item add page</h1>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div>
+    <label>Name</label>
+    {{form.name}}
+  </div>
+  <div>
+    <label>Description</label>
+    {{form.description}}
+  </div>
+  <div>
+    <label>Price</label>
+    {{form.price}}
+  </div>
+  <div>
+    <label>Category</label>
+    {{form.category}}
+  </div>
+  <div>
+    <label>Image</label>
+    {{form.image}}
+  </div>
+  <div>
+    <label>Is sold</label>
+    {{form.is_sold}}
+  </div>
+  {% if form.errors or form.non_field_errors %} {% for form_field in form %}
+  {{form_field.errors}} {% endfor %} {{form.non_field_errors}} {% endif %}
+  <button type="submit">Submit</button>
+</form>
+
+{% endblock %}

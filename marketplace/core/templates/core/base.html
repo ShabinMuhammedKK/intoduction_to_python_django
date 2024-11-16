@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marketplace</title>
-</head>
-<body>
-    {% block content %}  
-    {% endblock %}  
-</body>
+  </head>
+  <body>
+    <header>
+      <div style="display: flex; justify-content: end; margin-right: 50px">
+        <ul>
+          <a href="/">HOME</a>
+        </ul>
+        {% if form.request.user.is_authenticated %}
+        <ul>
+          <a href="{% url 'core:login'%}">LOGIN</a>
+        </ul>
+        <ul>
+          <a href="{% url 'core:signup'%}">SIGNUP</a>
+        </ul>
+        {% else %}
+        <ul>
+          <a href="{% url 'item:additem' %}">Add new item</a>
+        </ul>
+        {% endif%}
+
+        <ul>
+          <a href="{% url 'core:contact'%}">CONTACT</a>
+        </ul>
+      </div>
+    </header>
+    {% block content %} {% endblock %}
+  </body>
 </html>
