@@ -24,10 +24,6 @@
     <label>Image</label>
     {{form.image}}
   </div>
-  <div>
-    <label>Is sold</label>
-    {{form.is_sold}}
-  </div>
   {% if form.errors or form.non_field_errors %} {% for form_field in form %}
   {{form_field.errors}} {% endfor %} {{form.non_field_errors}} {% endif %}
   <button type="submit">Submit</button>
